@@ -13,8 +13,13 @@ Time spent: **X** hours spent in total
     - Fixed in version: 4.7.3
   - [ ] GIF Walkthrough: ![YouTube Embed XSS](https://raw.githubusercontent.com/greenteas/week7-wp/master/youtubeEmbedXSS.gif)
   - [ ] Steps to recreate: 
+    - Go to add a new post or edit an existing post in Wordpress admin console in Text mode.
+    - Embed a YouTube video with JavaScript within its URL, escaping the < and > characters.
+    
+    ```[embed src='https://youtube.com/embed/12345\x3csvg onload=alert(1)\x3e'][/embed]```
+    - Return to Visual to preview the post. The alert should appear.
   - [ ] Affected source code:
-    - [Link 1](https://core.trac.wordpress.org/browser/tags/version/src/source_file.php)
+    - [Link 1](https://core.trac.wordpress.org/browser/branches/4.2/src/wp-includes/class-wp-embed.php)
 1. (Required) Vulnerability Name or ID
   - [ ] Summary: 
     - Vulnerability types:
