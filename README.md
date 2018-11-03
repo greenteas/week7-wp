@@ -6,7 +6,7 @@ Time spent: **10** hours spent in total
 
 ## Pentesting Report
 
-### 1. Authenticated Stored Cross-Site Scripting (XSS) in YouTube URL Embeds (8768)
+### 1. Authenticated Stored Cross-Site Scripting (XSS) in YouTube URL Embeds (CVE-2017-6817)
   - [ ] Summary: 
     - Vulnerability types: XSS
     - Tested in version: 4.2
@@ -21,7 +21,7 @@ Time spent: **10** hours spent in total
   - [ ] Affected source code:
     - [class-wp-embed.php](https://core.trac.wordpress.org/browser/branches/4.2/src/wp-includes/class-wp-embed.php)
 
-### 2. Large File Upload Error XSS (8819)
+### 2. Large File Upload Error XSS (CVE-2017-9061)
   - [ ] Summary: 
     - Vulnerability types: XSS
     - Tested in version: 4.2
@@ -50,7 +50,7 @@ Time spent: **10** hours spent in total
   - [ ] Affected source code:
     - [comment.php](https://core.trac.wordpress.org/browser/branches/4.2/src/wp-includes/comment.php)
 
-### 4. Authenticated Shortcode Tags Cross-Site Scripting (XSS) (8186)
+### 4. Authenticated Shortcode Tags Cross-Site Scripting (XSS) (CVE-2015-5714)
   - [ ] Summary: 
     - Vulnerability types: XSS
     - Tested in version: 4.2
@@ -65,7 +65,7 @@ Time spent: **10** hours spent in total
     - [kses.php](https://core.trac.wordpress.org/browser/branches/4.2/src/wp-includes/kses.php)
     - [shortcodes.php](https://core.trac.wordpress.org/browser/branches/4.2/src/wp-includes/shortcodes.php)
 
-### 5. Authenticated Stored Cross-Site Scripting (XSS) (8111)
+### 5. Authenticated Stored Cross-Site Scripting (XSS) (CVE-2015-5622, CVE-2015-5623)
   - [ ] Summary: 
     - Vulnerability types: XSS
     - Tested in version: 4.2
