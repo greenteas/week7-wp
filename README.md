@@ -6,7 +6,7 @@ Time spent: **X** hours spent in total
 
 ## Pentesting Report
 
-1. Authenticated Stored Cross-Site Scripting (XSS) in YouTube URL Embeds (CVE-2017-6817)
+1. Authenticated Stored Cross-Site Scripting (XSS) in YouTube URL Embeds (8768)
   - [ ] Summary: 
     - Vulnerability types: XSS
     - Tested in version: 4.2
@@ -21,7 +21,7 @@ Time spent: **X** hours spent in total
   - [ ] Affected source code:
     - [class-wp-embed.php](https://core.trac.wordpress.org/browser/branches/4.2/src/wp-includes/class-wp-embed.php)
 
-2. Large File Upload Error XSS (CVE-2017-9061)
+2. Large File Upload Error XSS (8819)
   - [ ] Summary: 
     - Vulnerability types: XSS
     - Tested in version: 4.2
@@ -36,12 +36,12 @@ Time spent: **X** hours spent in total
   - [ ] Affected source code:
     - [script-loader.php](https://core.trac.wordpress.org/browser/branches/4.2/src/wp-includes/script-loader.php)
 
-3. Unauthenticated Stored Cross-Site Scripting (XSS)
+3. Unauthenticated Stored Cross-Site Scripting (XSS) (7945)
   - [ ] Summary: 
     - Vulnerability types: XSS
     - Tested in version: 4.2
     - Fixed in version: 4.2.1
-  - [ ] GIF Walkthrough: ![YLarge Comment XSS](https://raw.githubusercontent.com/greenteas/week7-wp/master/largecomment.gif)
+  - [ ] GIF Walkthrough: ![Large Comment XSS](https://raw.githubusercontent.com/greenteas/week7-wp/master/largecomment.gif)
   - [ ] Steps to recreate: 
     - Submit a very long comment on a post over 64 kB with JavaScript within it. Stretch the comment until it is 64 kB.
     ```<a title='x onmouseover=alert(unescape(/hello%20world/.source)) style=position:absolute;left:0;top:0;width:5000px;height:5000px AAAAAAAAAAAA [64 kb] ...'></a>```
@@ -49,25 +49,35 @@ Time spent: **X** hours spent in total
   - [ ] Affected source code:
     - [comment.php](https://core.trac.wordpress.org/browser/branches/4.2/src/wp-includes/comment.php)
 
-4. (Optional) Vulnerability Name or ID
+4. Authenticated Shortcode Tags Cross-Site Scripting (XSS) (8186)
   - [ ] Summary: 
-    - Vulnerability types:
-    - Tested in version:
-    - Fixed in version: 
-  - [ ] GIF Walkthrough: 
+    - Vulnerability types: XSS
+    - Tested in version: 4.2
+    - Fixed in version: 4.2.5
+  - [ ] GIF Walkthrough: ![Shortcode XSS](https://raw.githubusercontent.com/greenteas/week7-wp/master/shortcode.gif)
   - [ ] Steps to recreate: 
+    - Make a post with the following code:
+    
+    ```[caption width='1' caption='<a href="' ">]</a><a href="onClick='alert(1)'">click for alert```
+    - View the post and click the link.
   - [ ] Affected source code:
-    - [Link 1](https://core.trac.wordpress.org/browser/tags/version/src/source_file.php)
+    - [kses.php](https://core.trac.wordpress.org/browser/branches/4.2/src/wp-includes/kses.php)
+    - [shortcodes.php](https://core.trac.wordpress.org/browser/branches/4.2/src/wp-includes/shortcodes.php)
 
-5. (Optional) Vulnerability Name or ID
+5. Authenticated Stored Cross-Site Scripting (XSS) (8111)
   - [ ] Summary: 
-    - Vulnerability types:
-    - Tested in version:
-    - Fixed in version: 
-  - [ ] GIF Walkthrough: 
+    - Vulnerability types: XSS
+    - Tested in version: 4.2
+    - Fixed in version: 4.2.3
+  - [ ] GIF Walkthrough: ![Shortcode XSS](https://raw.githubusercontent.com/greenteas/week7-wp/master/shortcode2.gif)
   - [ ] Steps to recreate: 
+    - Make a post with the following code:
+    
+    ```<a href="[caption code=">]</a><a title=" onmouseover=alert('test')  ">link</a>```
+    - View the post and hover over the link.
   - [ ] Affected source code:
-    - [Link 1](https://core.trac.wordpress.org/browser/tags/version/src/source_file.php) 
+    - [kses.php](https://core.trac.wordpress.org/browser/branches/4.2/src/wp-includes/kses.php)
+    - [shortcodes.php](https://core.trac.wordpress.org/browser/branches/4.2/src/wp-includes/shortcodes.php)
 
 ## Assets
 
@@ -80,6 +90,8 @@ List any additional assets, such as scripts or files
 - [YouTube Embed XSS](https://blog.sucuri.net/2017/03/stored-xss-in-wordpress-core.html)
 - [Large File XSS](https://hackerone.com/reports/203515)
 - [Large Comment XSS](https://packetstormsecurity.com/files/131644/)
+- [Shortcode XSS](http://blog.checkpoint.com/2015/09/15/finding-vulnerabilities-in-core-wordpress-a-bug-hunters-trilogy-part-iii-ultimatum/)
+- [Shortcode/HTML Tag XSS](https://klikki.fi/adv/wordpress3.html)
 
 GIFs created with [LiceCap](http://www.cockos.com/licecap/).
 
