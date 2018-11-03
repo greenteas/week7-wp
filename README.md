@@ -36,15 +36,18 @@ Time spent: **X** hours spent in total
   - [ ] Affected source code:
     - [script-loader.php](https://core.trac.wordpress.org/browser/branches/4.2/src/wp-includes/script-loader.php)
 
-3. (Required) Vulnerability Name or ID
+3. Unauthenticated Stored Cross-Site Scripting (XSS)
   - [ ] Summary: 
-    - Vulnerability types:
-    - Tested in version:
-    - Fixed in version: 
-  - [ ] GIF Walkthrough: 
+    - Vulnerability types: XSS
+    - Tested in version: 4.2
+    - Fixed in version: 4.2.1
+  - [ ] GIF Walkthrough: ![YLarge Comment XSS](https://raw.githubusercontent.com/greenteas/week7-wp/master/largecomment.gif)
   - [ ] Steps to recreate: 
+    - Submit a very long comment on a post over 64 kB with JavaScript within it. Stretch the comment until it is 64 kB.
+    ```<a title='x onmouseover=alert(unescape(/hello%20world/.source)) style=position:absolute;left:0;top:0;width:5000px;height:5000px AAAAAAAAAAAA [64 kb] ...'></a>```
+    - When the mouse hover over the comment, the alert will appear.
   - [ ] Affected source code:
-    - [Link 1](https://core.trac.wordpress.org/browser/tags/version/src/source_file.php)
+    - [comment.php](https://core.trac.wordpress.org/browser/branches/4.2/src/wp-includes/comment.php)
 
 4. (Optional) Vulnerability Name or ID
   - [ ] Summary: 
@@ -55,6 +58,7 @@ Time spent: **X** hours spent in total
   - [ ] Steps to recreate: 
   - [ ] Affected source code:
     - [Link 1](https://core.trac.wordpress.org/browser/tags/version/src/source_file.php)
+
 5. (Optional) Vulnerability Name or ID
   - [ ] Summary: 
     - Vulnerability types:
@@ -75,6 +79,7 @@ List any additional assets, such as scripts or files
 - [WordPress Developer Reference](https://developer.wordpress.org/reference/)
 - [YouTube Embed XSS](https://blog.sucuri.net/2017/03/stored-xss-in-wordpress-core.html)
 - [Large File XSS](https://hackerone.com/reports/203515)
+- [Large Comment XSS](https://packetstormsecurity.com/files/131644/)
 
 GIFs created with [LiceCap](http://www.cockos.com/licecap/).
 
