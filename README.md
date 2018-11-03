@@ -6,7 +6,7 @@ Time spent: **X** hours spent in total
 
 ## Pentesting Report
 
-1. (Required) Authenticated Stored Cross-Site Scripting (XSS) in YouTube URL Embeds (CVE-2017-6817)
+1. Authenticated Stored Cross-Site Scripting (XSS) in YouTube URL Embeds (CVE-2017-6817)
   - [ ] Summary: 
     - Vulnerability types: XSS
     - Tested in version: 4.2
@@ -19,16 +19,23 @@ Time spent: **X** hours spent in total
     ```[embed src='https://youtube.com/embed/12345\x3csvg onload=alert(1)\x3e'][/embed]```
     - Return to Visual to preview the post. The alert should appear.
   - [ ] Affected source code:
-    - [Link 1](https://core.trac.wordpress.org/browser/branches/4.2/src/wp-includes/class-wp-embed.php)
-2. (Required) Vulnerability Name or ID
+    - [class-wp-embed.php](https://core.trac.wordpress.org/browser/branches/4.2/src/wp-includes/class-wp-embed.php)
+
+2. Large File Upload Error XSS (CVE-2017-9061)
   - [ ] Summary: 
-    - Vulnerability types:
-    - Tested in version:
-    - Fixed in version: 
-  - [ ] GIF Walkthrough: 
+    - Vulnerability types: XSS
+    - Tested in version: 4.2
+    - Fixed in version: 4.7.5
+  - [ ] GIF Walkthrough: ![Large File XSS](https://raw.githubusercontent.com/greenteas/week7-wp/master/largefileXSS.gif)
   - [ ] Steps to recreate: 
+    - Create a large file over the upload limit for WordPress. (File made here is over 20MB)
+    - Rename it as an image with JavaScript within its name in an img tag.
+    ```apples<img src=a onerror=alert(1)>.png```
+    - Go to Media (/wp-admin/media-new.php) in the admin console and upload the file.
+    - The script should be executed when an upload error occurs because of the maximum file upload size.
   - [ ] Affected source code:
-    - [Link 1](https://core.trac.wordpress.org/browser/tags/version/src/source_file.php)
+    - [script-loader.php](https://core.trac.wordpress.org/browser/branches/4.2/src/wp-includes/script-loader.php)
+
 3. (Required) Vulnerability Name or ID
   - [ ] Summary: 
     - Vulnerability types:
@@ -38,6 +45,7 @@ Time spent: **X** hours spent in total
   - [ ] Steps to recreate: 
   - [ ] Affected source code:
     - [Link 1](https://core.trac.wordpress.org/browser/tags/version/src/source_file.php)
+
 4. (Optional) Vulnerability Name or ID
   - [ ] Summary: 
     - Vulnerability types:
@@ -66,6 +74,7 @@ List any additional assets, such as scripts or files
 - [WordPress Source Browser](https://core.trac.wordpress.org/browser/)
 - [WordPress Developer Reference](https://developer.wordpress.org/reference/)
 - [YouTube Embed XSS](https://blog.sucuri.net/2017/03/stored-xss-in-wordpress-core.html)
+- [Large File XSS](https://hackerone.com/reports/203515)
 
 GIFs created with [LiceCap](http://www.cockos.com/licecap/).
 
