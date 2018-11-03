@@ -1,12 +1,12 @@
 # Project 7 - WordPress Pentesting
 
-Time spent: **X** hours spent in total
+Time spent: **10** hours spent in total
 
 > Objective: Find, analyze, recreate, and document **five vulnerabilities** affecting an old version of WordPress
 
 ## Pentesting Report
 
-1. Authenticated Stored Cross-Site Scripting (XSS) in YouTube URL Embeds (8768)
+### 1. Authenticated Stored Cross-Site Scripting (XSS) in YouTube URL Embeds (8768)
   - [ ] Summary: 
     - Vulnerability types: XSS
     - Tested in version: 4.2
@@ -21,7 +21,7 @@ Time spent: **X** hours spent in total
   - [ ] Affected source code:
     - [class-wp-embed.php](https://core.trac.wordpress.org/browser/branches/4.2/src/wp-includes/class-wp-embed.php)
 
-2. Large File Upload Error XSS (8819)
+### 2. Large File Upload Error XSS (8819)
   - [ ] Summary: 
     - Vulnerability types: XSS
     - Tested in version: 4.2
@@ -36,7 +36,7 @@ Time spent: **X** hours spent in total
   - [ ] Affected source code:
     - [script-loader.php](https://core.trac.wordpress.org/browser/branches/4.2/src/wp-includes/script-loader.php)
 
-3. Unauthenticated Stored Cross-Site Scripting (XSS) (7945)
+### 3. Unauthenticated Stored Cross-Site Scripting (XSS) (7945)
   - [ ] Summary: 
     - Vulnerability types: XSS
     - Tested in version: 4.2
@@ -44,12 +44,13 @@ Time spent: **X** hours spent in total
   - [ ] GIF Walkthrough: ![Large Comment XSS](https://raw.githubusercontent.com/greenteas/week7-wp/master/largecomment.gif)
   - [ ] Steps to recreate: 
     - Submit a very long comment on a post over 64 kB with JavaScript within it. Stretch the comment until it is 64 kB.
+    
     ```<a title='x onmouseover=alert(unescape(/hello%20world/.source)) style=position:absolute;left:0;top:0;width:5000px;height:5000px AAAAAAAAAAAA [64 kb] ...'></a>```
     - When the mouse hover over the comment, the alert will appear.
   - [ ] Affected source code:
     - [comment.php](https://core.trac.wordpress.org/browser/branches/4.2/src/wp-includes/comment.php)
 
-4. Authenticated Shortcode Tags Cross-Site Scripting (XSS) (8186)
+### 4. Authenticated Shortcode Tags Cross-Site Scripting (XSS) (8186)
   - [ ] Summary: 
     - Vulnerability types: XSS
     - Tested in version: 4.2
@@ -64,7 +65,7 @@ Time spent: **X** hours spent in total
     - [kses.php](https://core.trac.wordpress.org/browser/branches/4.2/src/wp-includes/kses.php)
     - [shortcodes.php](https://core.trac.wordpress.org/browser/branches/4.2/src/wp-includes/shortcodes.php)
 
-5. Authenticated Stored Cross-Site Scripting (XSS) (8111)
+### 5. Authenticated Stored Cross-Site Scripting (XSS) (8111)
   - [ ] Summary: 
     - Vulnerability types: XSS
     - Tested in version: 4.2
